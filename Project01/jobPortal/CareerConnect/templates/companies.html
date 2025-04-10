@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Companies - CareerConnect</title>
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+
+/* General Styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #1e40af;
+    --accent-color: #3b82f6;
+    --light-color: #f3f4f6;
+    --dark-color: #1f2937;
+    --text-color: #374151;
+    --text-light: #6b7280;
+    --border-color: #e5e7eb;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --danger-color: #ef4444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #f9fafb;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+ul {
+    list-style: none;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.section-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.logo a {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--dark-color);
+}
+
+.logo span {
+    color: var(--primary-color);
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--primary-color);
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease;
+    background-color: var(--dark-color);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--dark-color);
+    color: white;
+    padding: 60px 0 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-section h2,
+.footer-section h3 {
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.footer-section.about p {
+    margin-bottom: 20px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #d1d5db;
+    transition: all 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: var(--primary-color);
+    padding-left: 5px;
+}
+
+.footer-section.contact p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.footer-section.contact i {
+    margin-right: 10px;
+    color: var(--primary-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Media Queries */
+@media (max-width: 992px) {
+    .nav-links {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: white;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px 0;
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+
+
+
+
+
+
+        /* Global Variables */
+        :root {
+          --primary-color: #4f46e5;
+          --primary-color-dark: #4338ca;
+          --primary-rgb: 79, 70, 229;
+          --secondary-color: #06b6d4;
+          --text-color: #1f2937;
+          --text-light: #6b7280;
+          --text-lighter: #9ca3af;
+          --border-color: #e5e7eb;
+          --bg-light: #f9fafb;
+          --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+          --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+          --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+          --radius-sm: 4px;
+          --radius-md: 8px;
+          --radius-lg: 12px;
+          --transition: all 0.3s ease;
+        }
+
+        /* Page Header Styles */
+        .page-header {
+          background: linear-gradient(135deg, var(--primary-color), var(--primary-color-dark));
+          padding: 60px 0;
+          text-align: center;
+          color: white;
+          margin-bottom: 40px;
+        }
+        
+        .page-header h1 {
+          font-size: 2.5rem;
+          font-weight: 700;
+          margin-bottom: 15px;
+          animation: fadeInUp 0.6s ease;
+        }
+        
+        .page-header p {
+          font-size: 1.25rem;
+          opacity: 0.95;
+          max-width: 700px;
+          margin: 0 auto;
+          animation: fadeInUp 0.8s ease;
+        }
+
+        /* Search Section */
+        .search-section {
+          margin-bottom: 40px;
+          animation: fadeInUp 1s ease;
+        }
+        
+        .search-box {
+          background-color: white;
+          border-radius: var(--radius-lg);
+          box-shadow: var(--shadow-lg);
+          padding: 25px;
+          border: none;
+          position: relative;
+          margin-top: -30px;
+        }
+        
+        .search-row {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 15px;
+          align-items: center;
+        }
+        
+        .search-group {
+          flex: 1;
+          position: relative;
+          min-width: 200px;
+        }
+        
+        .search-group i {
+          position: absolute;
+          left: 15px;
+          top: 50%;
+          transform: translateY(-50%);
+          color: var(--text-lighter);
+          font-size: 18px;
+        }
+        
+        .search-group input {
+          width: 100%;
+          height: 56px;
+          border-radius: var(--radius-md);
+          border: 1px solid var(--border-color);
+          padding: 0 15px 0 45px;
+          font-size: 1rem;
+          transition: var(--transition);
+          background-color: var(--bg-light);
+        }
+        
+        .search-group input:focus {
+          border-color: var(--primary-color);
+          box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.15);
+          background-color: white;
+          outline: none;
+        }
+        
+        .search-group input::placeholder {
+          color: var(--text-lighter);
+        }
+        
+        .search-box .btn-primary {
+          height: 56px;
+          padding: 0 25px;
+          font-weight: 500;
+          font-size: 1rem;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          min-width: 150px;
+          white-space: nowrap;
+        }
+        
+        .search-box .btn-primary:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 20px rgba(var(--primary-rgb), 0.25);
+        }
+
+        /* Companies Filters */
+        .companies-filters {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 15px;
+          margin-bottom: 30px;
+          justify-content: center;
+        }
+        
+        .filter-pill {
+          background-color: white;
+          border-radius: 30px;
+          padding: 10px 20px;
+          font-size: 0.95rem;
+          color: var(--text-light);
+          border: 1px solid var(--border-color);
+          cursor: pointer;
+          transition: var(--transition);
+        }
+        
+        .filter-pill:hover, .filter-pill.active {
+          background-color: var(--primary-color);
+          color: white;
+          border-color: var(--primary-color);
+          transform: translateY(-2px);
+          box-shadow: var(--shadow-sm);
+        }
+
+        /* Companies Grid */
+        .companies-container {
+          padding: 0 20px;
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+      
+        .companies-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+          gap: 30px;
+          margin-bottom: 40px;
+        }
+        
+        /* Featured Companies */
+        .featured-companies {
+          margin-bottom: 60px;
+        }
+        
+        .section-title {
+          font-size: 1.75rem;
+          font-weight: 600;
+          color: var(--text-color);
+          margin-bottom: 30px;
+          text-align: center;
+          position: relative;
+        }
+        
+        .section-title:after {
+          content: '';
+          position: absolute;
+          bottom: -10px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 60px;
+          height: 4px;
+          background-color: var(--primary-color);
+          border-radius: 2px;
+        }
+        
+        /* Company Card */
+        .company-card {
+          background-color: white;
+          border-radius: var(--radius-lg);
+          box-shadow: var(--shadow-md);
+          overflow: hidden;
+          transition: var(--transition);
+          display: flex;
+          flex-direction: column;
+          position: relative;
+        }
+        
+        .company-card:hover {
+          transform: translateY(-5px);
+          box-shadow: var(--shadow-lg);
+        }
+        
+        .company-banner {
+          height: 120px;
+          background-position: center;
+          background-size: cover;
+          position: relative;
+        }
+        
+        .company-logo-wrapper {
+          position: absolute;
+          bottom: -30px;
+          left: 20px;
+          padding: 5px;
+          background-color: white;
+          border-radius: var(--radius-md);
+          box-shadow: var(--shadow-sm);
+        }
+        
+        .company-logo {
+          width: 60px;
+          height: 60px;
+          border-radius: var(--radius-sm);
+          object-fit: cover;
+        }
+        
+        .company-info {
+          padding: 45px 20px 20px;
+        }
+        
+        .company-name {
+          font-size: 1.15rem;
+          font-weight: 600;
+          margin-bottom: 5px;
+          color: var(--text-color);
+        }
+        
+        .company-industry {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          color: var(--text-light);
+          font-size: 0.9rem;
+          margin-bottom: 15px;
+        }
+        
+        .company-desc {
+          color: var(--text-light);
+          font-size: 0.925rem;
+          line-height: 1.5;
+          margin-bottom: 15px;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+        
+        .company-meta {
+          display: flex;
+          justify-content: space-between;
+          margin-top: auto;
+          padding-top: 15px;
+          border-top: 1px solid var(--border-color);
+        }
+        
+        .company-location {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          color: var(--text-light);
+          font-size: 0.9rem;
+        }
+        
+        .open-jobs {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          font-weight: 500;
+          color: var(--primary-color);
+          font-size: 0.9rem;
+        }
+        
+        .company-rating {
+          position: absolute;
+          top: 130px;
+          right: 20px;
+          background-color: white;
+          border-radius: 20px;
+          padding: 5px 12px;
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          box-shadow: var(--shadow-sm);
+          font-weight: 500;
+          font-size: 0.85rem;
+        }
+        
+        .company-rating .fa-star {
+          color: #fbbf24;
+        }
+        
+        /* Featured Badge */
+        .featured-badge {
+          position: absolute;
+          top: 15px;
+          right: 15px;
+          background-color: rgba(255, 255, 255, 0.9);
+          border-radius: 20px;
+          padding: 5px 12px;
+          font-size: 0.75rem;
+          font-weight: 500;
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          box-shadow: var(--shadow-sm);
+        }
+        
+        .featured-badge i {
+          color: #fbbf24;
+        }
+        
+        /* Companies Categories */
+        .company-categories {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+          gap: 25px;
+          margin-bottom: 60px;
+        }
+        
+        .category-card {
+          background-color: white;
+          border-radius: var(--radius-lg);
+          box-shadow: var(--shadow-md);
+          overflow: hidden;
+          transition: var(--transition);
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          text-align: center;
+        }
+        
+        .category-card:hover {
+          transform: translateY(-5px);
+          box-shadow: var(--shadow-lg);
+        }
+        
+        .category-icon {
+          margin: 30px auto 15px;
+          width: 70px;
+          height: 70px;
+          background-color: rgba(var(--primary-rgb), 0.1);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          font-size: 1.75rem;
+          color: var(--primary-color);
+          transition: var(--transition);
+        }
+        
+        .category-card:hover .category-icon {
+          background-color: var(--primary-color);
+          color: white;
+          transform: scale(1.1);
+        }
+        
+        .category-name {
+          font-size: 1.1rem;
+          font-weight: 600;
+          margin-bottom: 10px;
+          color: var(--text-color);
+        }
+        
+        .category-count {
+          margin-bottom: 30px;
+          color: var(--text-light);
+          font-size: 0.9rem;
+        }
+        
+        /* Pagination */
+        .pagination {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          margin-top: 40px;
+          margin-bottom: 60px;
+        }
+        
+        .pagination a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 38px;
+          height: 38px;
+          border-radius: var(--radius-md);
+          background-color: var(--bg-light);
+          color: var(--text-color);
+          font-weight: 500;
+          transition: var(--transition);
+          text-decoration: none;
+        }
+        
+        .pagination a.next {
+          width: auto;
+          padding: 0 15px;
+          gap: 5px;
+        }
+        
+        .pagination a:hover, .pagination a.active {
+          background-color: var(--primary-color);
+          color: white;
+        }
+        
+        .pagination span {
+          color: var(--text-light);
+        }
+        
+        /* Button Styles */
+        .btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: 10px 24px;
+          border-radius: var(--radius-md);
+          font-weight: 500;
+          cursor: pointer;
+          transition: var(--transition);
+          border: none;
+          font-size: 0.95rem;
+          text-decoration: none;
+        }
+        
+        .btn-primary {
+          background-color: var(--primary-color);
+          color: white;
+        }
+        
+        .btn-primary:hover {
+          background-color: var(--primary-color-dark);
+          transform: translateY(-2px);
+          box-shadow: 0 5px 15px rgba(var(--primary-rgb), 0.3);
+        }
+        
+        .btn-outline {
+          border: 2px solid var(--primary-color);
+          color: var(--primary-color);
+          background-color: transparent;
+        }
+        
+        .btn-outline:hover {
+          background-color: var(--primary-color);
+          color: white;
+          transform: translateY(-2px);
+          box-shadow: 0 5px 15px rgba(var(--primary-rgb), 0.15);
+        }
+        
+        /* View More Button */
+        .view-more-container {
+          text-align: center;
+          margin: 20px 0 60px;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 900px) {
+          .search-row {
+            flex-direction: column;
+          }
+          
+          .search-group {
+            width: 100%;
+          }
+          
+          .page-header {
+            padding: 40px 0;
+          }
+          
+          .page-header h1 {
+            font-size: 2rem;
+          }
+          
+          .page-header p {
+            font-size: 1.1rem;
+          }
+        }
+        
+        @media (max-width: 768px) {
+          .companies-grid {
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .companies-grid {
+            grid-template-columns: 1fr;
+          }
+          
+          .page-header h1 {
+            font-size: 1.75rem;
+          }
+          
+          .page-header p {
+            font-size: 1rem;
+          }
+          
+          .filter-pill {
+            font-size: 0.85rem;
+            padding: 8px 16px;
+          }
+        }
+    </style>
+</head>
+<body>
+  <nav class="navbar">
+  <div class="container">
+      <div class="logo">
+          <a href="home.html">Career<span>Connect</span></a>
+      </div>
+      <ul class="nav-links">
+          <li><a href="{% url 'findjob' %}">Find Jobs</a></li>
+          <li><a href="{% url 'companies' %}">Companies</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
+      </ul>
+      <div class="auth-buttons">
+          <a href="{% url 'login' %}" class="btn btn-outline">Login</a>
+          <a href="{% url 'register' %}" class="btn btn-primary">Register</a>
+      </div>
+      <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+      </div>
+  </div>
+</nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Discover Top Companies</h1>
+            <p>Explore thousands of companies looking for talented professionals like you</p>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-box">
+                <form>
+                    <div class="search-row">
+                        <div class="search-group">
+                            <i class="fas fa-building"></i>
+                            <input type="text" placeholder="Company name or keywords">
+                        </div>
+                        <div class="search-group">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <input type="text" placeholder="City, state, or zip code">
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-search"></i> Search Companies
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Pills -->
+    <div class="companies-container">
+        <div class="companies-filters">
+            <div class="filter-pill active">All Companies</div>
+            <div class="filter-pill">Top Rated</div>
+            <div class="filter-pill">Featured</div>
+            <div class="filter-pill">Most Jobs</div>
+            <div class="filter-pill">Fortune 500</div>
+            <div class="filter-pill">Remote Friendly</div>
+            <div class="filter-pill">Startups</div>
+        </div>
+    </div>
+
+    <!-- Featured Companies Section -->
+    <section class="featured-companies">
+        <div class="companies-container">
+            <h2 class="section-title">Featured Companies</h2>
+            <div class="companies-grid">
+                <!-- Company Card 1 -->
+                <div class="company-card">
+                    <div class="company-banner" style="background-color: #4285F4;"></div>
+                    <div class="company-logo-wrapper">
+                        <img src="/api/placeholder/60/60" alt="Google Logo" class="company-logo">
+                    </div>
+                    <div class="featured-badge">
+                        <i class="fas fa-star"></i> Featured
+                    </div>
+                    <div class="company-info">
+                        <h3 class="company-name">Google</h3>
+                        <div class="company-industry">
+                            <i class="fas fa-briefcase"></i> Technology
+                        </div>
+                        <p class="company-desc">A multinational technology company specializing in Internet-related services and products, including online advertising technologies, search engine, cloud computing, software, and hardware.</p>
+                        <div class="company-meta">
+                            <div class="company-location">
+                                <i class="fas fa-map-marker-alt"></i> Mountain View, CA
+                            </div>
+                            <div class="open-jobs">
+                                <i class="fas fa-briefcase"></i> 45 Jobs
+                            </div>
+                        </div>
+                    </div>
+                    <div class="company-rating">
+                        <i class="fas fa-star"></i> 4.8
+                    </div>
+                </div>
+
+                <!-- Company Card 2 -->
+                <div class="company-card">
+                    <div class="company-banner" style="background-color: #FF9900;"></div>
+                    <div class="company-logo-wrapper">
+                        <img src="/api/placeholder/60/60" alt="Amazon Logo" class="company-logo">
+                    </div>
+                    <div class="featured-badge">
+                        <i class="fas fa-star"></i> Featured
+                    </div>
+                    <div class="company-info">
+                        <h3 class="company-name">Amazon</h3>
+                        <div class="company-industry">
+                            <i class="fas fa-briefcase"></i> E-commerce, Cloud Computing
+                        </div>
+                        <p class="company-desc">A multinational company focusing on e-commerce, cloud computing, digital streaming, and artificial intelligence. One of the largest online marketplaces and cloud service providers globally.</p>
+                        <div class="company-meta">
+                            <div class="company-location">
+                                <i class="fas fa-map-marker-alt"></i> Seattle, WA
+                            </div>
+                            <div class="open-jobs">
+                                <i class="fas fa-briefcase"></i> 78 Jobs
+                            </div>
+                        </div>
+                    </div>
+                    <div class="company-rating">
+                        <i class="fas fa-star"></i> 4.5
+                    </div>
+                </div>
+
+                <!-- Company Card 3 -->
+                <div class="company-card">
+                    <div class="company-banner" style="background-color: #E50914;"></div>
+                    <div class="company-logo-wrapper">
+                        <img src="/api/placeholder/60/60" alt="Netflix Logo" class="company-logo">
+                    </div>
+                    <div class="featured-badge">
+                        <i class="fas fa-star"></i> Featured
+                    </div>
+                    <div class="company-info">
+                        <h3 class="company-name">Netflix</h3>
+                        <div class="company-industry">
+                            <i class="fas fa-briefcase"></i> Entertainment, Streaming
+                        </div>
+                        <p class="company-desc">A subscription-based streaming service that allows members to watch TV shows and movies on an internet-connected device. Known for its original content and innovative company culture.</p>
+                        <div class="company-meta">
+                            <div class="company-location">
+                                <i class="fas fa-map-marker-alt"></i> Los Gatos, CA
+                            </div>
+                            <div class="open-jobs">
+                                <i class="fas fa-briefcase"></i> 32 Jobs
+                            </div>
+                        </div>
+                    </div>
+                    <div class="company-rating">
+                        <i class="fas fa-star"></i> 4.6
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Browse by Industry Section -->
+    <section class="browse-categories">
+        <div class="companies-container">
+            <h2 class="section-title">Browse Companies by Industry</h2>
+            <div class="company-categories">
+                <!-- Category 1 -->
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="category-name">Technology</h3>
+                    <p class="category-count">842 Companies</p>
+                </div>
+
+                <!-- Category 2 -->
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3 class="category-name">Healthcare</h3>
+                    <p class="category-count">536 Companies</p>
+                </div>
+
+                <!-- Category 3 -->
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="category-name">Finance</h3>
+                    <p class="category-count">425 Companies</p>
+                </div>
+
+                <!-- Category 4 -->
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <h3 class="category-name">Retail</h3>
+                    <p class="category-count">387 Companies</p>
+                </div>
+            </div>
+            <div class="view-more-container">
+                <a href="#" class="btn btn-outline">View All Industries</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- All Companies Section -->
+    <section class="all-companies">
+        <div class="companies-container">
+            <h2 class="section-title">All Companies</h2>
+            <div class="companies-grid">
+                <!-- Company Card 1 -->
+                <div class="company-card">
+                    <div class="company-banner" style="background-color: #0078D7;"></div>
+                    <div class="company-logo-wrapper">
+                        <img src="/api/placeholder/60/60" alt="Microsoft Logo" class="company-logo">
+                    </div>
+                    <div class="company-info">
+                        <h3 class="company-name">Microsoft</h3>
+                        <div class="company-industry">
+                            <i class="fas fa-briefcase"></i> Technology, Software
+                        </div>
+                        <p class="company-desc">A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.</p>
+                        <div class="company-meta">
+                            <div class="company-location">
+                                <i class="fas fa-map-marker-alt"></i> Redmond, WA
+                            </div>
+                            <div class="open-jobs">
+                                <i class="fas fa-briefcase"></i> 56 Jobs
+                            </div>
+                        </div>
+                    </div>
+                    <div class="company-rating">
+                        <i class="fas fa-star"></i> 4.7
+                    </div>
+                </div>
+
+                <!-- Company Card 2 -->
+                <div class="company-card">
+                    <div class="company-banner" style="background-color: #000000;"></div>
+                    <div class="company-logo-wrapper">
+                        <img src="/api/placeholder/60/60" alt="Apple Logo" class="company-logo">
+                    </div>
+                    <div class="company-info">
+                        <h3 class="company-name">Apple</h3>
+                        <div class="company-industry">
+                            <i class="fas fa-briefcase"></i> Technology, Consumer Electronics
+                        </div>
+                        <p class="company-desc">A multinational technology company that designs, develops, and sells consumer electronics, computer software, and online services. Known for its innovative products and brand loyalty.</p>
+                        <div class="company-meta">
+                            <div class="company-location">
+                                <i class="fas fa-map-marker-alt"></i> Cupertino, CA
+                            </div>
+                            <div class="open-jobs">
+                                <i class="fas fa-briefcase"></i> 42 Jobs
+                            </div>
+                        </div>
+                    </div>
+                    <div class="company-rating">
+                        <i class="fas fa-star"></i> 4.6
+                    </div>
+                </div>
+
+                <!-- Company Card 3 -->
+                <div class="company-card">
+                    <div class="company-banner" style="background-color: #CC0000;"></div>
+                    <div class="company-logo-wrapper">
+                        <img src="/api/placeholder/60/60" alt="Tesla Logo" class="company-logo">
+                    </div>
+                    <div class="company-info">
+                        <h3 class="company-name">Tesla</h3>
+                        <div class="company-industry">
+                            <i class="fas fa-briefcase"></i> Automotive, Energy
+                        </div>
+                        <p class="company-desc">An American electric vehicle and clean energy company. Tesla designs and manufactures electric cars, battery energy storage, solar panels, and related products and services.</p>
+                        <div class="company-meta">
+                            <div class="company-location">
+                                <i class="fas fa-map-marker-alt"></i> Palo Alto, CA
+                            </div>
+                            <div class="open-jobs">
+                                <i class="fas fa-briefcase"></i> 38 Jobs
+                            </div>
+                        </div>
+                    </div>
+                    <div class="company-rating">
+                        <i class="fas fa-star"></i> 4.4
+                    </div>
+                </div>
+
+                <!-- Company Card 4 -->
+                <div class="company-card">
+                    <div class="company-banner" style="background-color: #1877F2;"></div>
+                    <div class="company-logo-wrapper">
+                        <img src="/api/placeholder/60/60" alt="Meta Logo" class="company-logo">
+                    </div>
+                    <div class="company-info">
+                        <h3 class="company-name">Meta</h3>
+                        <div class="company-industry">
+                            <i class="fas fa-briefcase"></i> Social Media, Technology
+                        </div>
+                        <p class="company-desc">A technology company focused on building products that advance Meta's mission of bringing people closer together. They develop social platforms, virtual reality, and more.</p>
+                        <div class="company-meta">
+                            <div class="company-location">
+                                <i class="fas fa-map-marker-alt"></i> Menlo Park, CA
+                            </div>
+                            <div class="open-jobs">
+                                <i class="fas fa-briefcase"></i> 49 Jobs
+                            </div>
+                        </div>
+                    </div>
+                    <div class="company-rating">
+                        <i class="fas fa-star"></i> 4.2
+                    </div>
+                </div>
+
+
+                <div class="company-card">
+                  <div class="company-banner" style="background-color: orange;"></div>
+                  <div class="company-logo-wrapper">
+                      <img src="/api/placeholder/60/60" alt="Apple Logo" class="company-logo">
+                  </div>
+                  <div class="company-info">
+                      <h3 class="company-name">Postman</h3>
+                      <div class="company-industry">
+                          <i class="fas fa-briefcase"></i> Technology, Consumer Electronics
+                      </div>
+                      <p class="company-desc">A multinational technology company that designs, develops, and sells consumer electronics, computer software, and online services. Known for its innovative products and brand loyalty.</p>
+                      <div class="company-meta">
+                          <div class="company-location">
+                              <i class="fas fa-map-marker-alt"></i> Cupertino, CA
+                          </div>
+                          <div class="open-jobs">
+                              <i class="fas fa-briefcase"></i> 42 Jobs
+                          </div>
+                      </div>
+                  </div>
+                  <div class="company-rating">
+                      <i class="fas fa-star"></i> 4.6
+                  </div>
+              </div>
+
+              <div class="company-card">
+                <div class="company-banner" style="background-color: green;"></div>
+                <div class="company-logo-wrapper">
+                    <img src="/api/placeholder/60/60" alt="Apple Logo" class="company-logo">
+                </div>
+                <div class="company-info">
+                    <h3 class="company-name">Geeks for Geeks</h3>
+                    <div class="company-industry">
+                        <i class="fas fa-briefcase"></i> Technology, Consumer Electronics
+                    </div>
+                    <p class="company-desc">A multinational technology company that designs, develops, and sells consumer electronics, computer software, and online services. Known for its innovative products and brand loyalty.</p>
+                    <div class="company-meta">
+                        <div class="company-location">
+                            <i class="fas fa-map-marker-alt"></i> Cupertino, CA
+                        </div>
+                        <div class="open-jobs">
+                            <i class="fas fa-briefcase"></i> 42 Jobs
+                        </div>
+                    </div>
+                </div>
+                <div class="company-rating">
+                    <i class="fas fa-star"></i> 4.6
+                </div>
+            </div>
+
+
+
+
+<script>
+  // Get all company cards
+  const companyCards = document.querySelectorAll('.company-card');
+  
+  // Search functionality
+  const searchForm = document.querySelector('.search-box form');
+  const searchInput = document.querySelector('.search-box input[type="text"]');
+  const locationInput = document.querySelector('.search-box input[placeholder="City, state, or zip code"]');
+  
+  searchForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    filterCompanies();
+  });
+  
+  // Also filter as user types (optional)
+  searchInput.addEventListener('input', filterCompanies);
+  locationInput.addEventListener('input', filterCompanies);
+  
+  // Filter pills functionality
+  const filterPills = document.querySelectorAll('.filter-pill');
+  filterPills.forEach(pill => {
+    pill.addEventListener('click', function() {
+      // Remove active class from all pills
+      filterPills.forEach(p => p.classList.remove('active'));
+      // Add active class to clicked pill
+      this.classList.add('active');
+      filterCompanies();
+    });
+  });
+  
+  function filterCompanies() {
+    const searchTerm = searchInput.value.toLowerCase();
+    const locationTerm = locationInput.value.toLowerCase();
+    const activeFilter = document.querySelector('.filter-pill.active').textContent;
+    
+    companyCards.forEach(card => {
+      const companyName = card.querySelector('.company-name').textContent.toLowerCase();
+      const companyDesc = card.querySelector('.company-desc').textContent.toLowerCase();
+      const companyIndustry = card.querySelector('.company-industry').textContent.toLowerCase();
+      const companyLocation = card.querySelector('.company-location').textContent.toLowerCase();
+      const isFeatured = card.querySelector('.featured-badge');
+      const rating = parseFloat(card.querySelector('.company-rating').textContent.split(' ')[1]);
+      const jobCount = parseInt(card.querySelector('.open-jobs').textContent.split(' ')[1]);
+      
+      // Check if matches search terms
+      const matchesSearch = companyName.includes(searchTerm) || 
+                          companyDesc.includes(searchTerm) || 
+                          companyIndustry.includes(searchTerm);
+      
+      const matchesLocation = companyLocation.includes(locationTerm);
+      
+      // Check active filter
+      let matchesFilter = true;
+      switch(activeFilter) {
+        case 'Top Rated':
+          matchesFilter = rating >= 4.5;
+          break;
+        case 'Featured':
+          matchesFilter = isFeatured !== null;
+          break;
+        case 'Most Jobs':
+          matchesFilter = jobCount >= 50;
+          break;
+        case 'Fortune 500':
+          // These would be hardcoded or fetched from API in a real app
+          const fortune500 = ['Google', 'Amazon', 'Microsoft', 'Apple', 'Netflix', 'Meta'];
+          matchesFilter = fortune500.includes(card.querySelector('.company-name').textContent);
+          break;
+        case 'Remote Friendly':
+          // This would be a property from API in a real app
+          const remoteCompanies = ['Google', 'Netflix', 'Meta'];
+          matchesFilter = remoteCompanies.includes(card.querySelector('.company-name').textContent);
+          break;
+        case 'Startups':
+          // This would be a property from API in a real app
+          const startups = ['Postman', 'Geeks for Geeks'];
+          matchesFilter = startups.includes(card.querySelector('.company-name').textContent);
+          break;
+        // 'All Companies' shows everything
+      }
+      
+      // Show/hide based on matches
+      if (matchesSearch && matchesLocation && matchesFilter) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+  
+  // Mobile menu toggle
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  
+  hamburger.addEventListener('click', function() {
+    this.classList.toggle('active');
+    navLinks.classList.toggle('active');
+  });
+</script>
+  
+</body>
+</html>

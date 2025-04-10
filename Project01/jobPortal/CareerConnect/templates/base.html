@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerConnect - Job Portal</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container">
+        <div class="logo">
+            <a href="home.html">Career<span>Connect</span></a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="{% url 'findjob' %}">Find Jobs</a></li>
+            <li><a href="{% url 'companies' %}">Companies</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+        <div class="auth-buttons">
+            <a href="{% url 'login' %}" class="btn btn-outline">Login</a>
+            <a href="{% url 'register' %}" class="btn btn-primary">Register</a>
+        </div>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </div>
+</nav>
+
+    <!-- Main Content Area -->
+    <main>
+        <!-- Content will change based on the page -->
+        <div class="content-container">
+            <!-- Page specific content goes here -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h2>Career<span>Connect</span></h2>
+                    <p>Your gateway to career opportunities and professional growth. Connect with top employers and find your dream job.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="find-jobs.html">Jobs</a></li>
+                        <li><a href="companies.html">Companies</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section resources">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Resume Builder</a></li>
+                        <li><a href="#">Career Advice</a></li>
+                        <li><a href="#">Interview Tips</a></li>
+                        <li><a href="#">Salary Guide</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Business Ave, City, Country</p>
+                    <p><i class="fas fa-phone"></i> +1 234 567 8900</p>
+                    <p><i class="fas fa-envelope"></i> info@careerconnect.com</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 CareerConnect. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

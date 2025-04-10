@@ -1,0 +1,1063 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - CareerConnect</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+
+
+/* General Styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #1e40af;
+    --accent-color: #3b82f6;
+    --light-color: #f3f4f6;
+    --dark-color: #1f2937;
+    --text-color: #374151;
+    --text-light: #6b7280;
+    --border-color: #e5e7eb;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --danger-color: #ef4444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #f9fafb;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+ul {
+    list-style: none;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.section-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.logo a {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--dark-color);
+}
+
+.logo span {
+    color: var(--primary-color);
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--primary-color);
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease;
+    background-color: var(--dark-color);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--dark-color);
+    color: white;
+    padding: 60px 0 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-section h2,
+.footer-section h3 {
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.footer-section.about p {
+    margin-bottom: 20px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #d1d5db;
+    transition: all 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: var(--primary-color);
+    padding-left: 5px;
+}
+
+.footer-section.contact p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.footer-section.contact i {
+    margin-right: 10px;
+    color: var(--primary-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Media Queries */
+@media (max-width: 992px) {
+    .nav-links {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: white;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px 0;
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+
+
+
+        /* Global Variables */
+        :root {
+          --primary-color: #4f46e5;
+          --primary-color-dark: #4338ca;
+          --primary-rgb: 79, 70, 229;
+          --secondary-color: #06b6d4;
+          --text-color: #1f2937;
+          --text-light: #6b7280;
+          --text-lighter: #9ca3af;
+          --border-color: #e5e7eb;
+          --bg-light: #f9fafb;
+          --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+          --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+          --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+          --radius-sm: 4px;
+          --radius-md: 8px;
+          --radius-lg: 12px;
+          --transition: all 0.3s ease;
+        }
+
+        /* Page Header Styles */
+        .page-header {
+          background: linear-gradient(135deg, var(--primary-color), var(--primary-color-dark));
+          padding: 60px 0;
+          text-align: center;
+          color: white;
+          margin-bottom: 40px;
+        }
+        
+        .page-header h1 {
+          font-size: 2.5rem;
+          font-weight: 700;
+          margin-bottom: 15px;
+          animation: fadeInUp 0.6s ease;
+        }
+        
+        .page-header p {
+          font-size: 1.25rem;
+          opacity: 0.95;
+          max-width: 700px;
+          margin: 0 auto;
+          animation: fadeInUp 0.8s ease;
+        }
+
+        /* Contact Page Specific Styles */
+        .contact-section {
+          max-width: 1200px;
+          margin: 0 auto 60px;
+          padding: 0 20px;
+        }
+        
+        .contact-container {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 40px;
+          background-color: white;
+          border-radius: var(--radius-lg);
+          box-shadow: var(--shadow-md);
+          overflow: hidden;
+          animation: fadeInUp 1s ease;
+        }
+        
+        .contact-info {
+          padding: 40px;
+          background-color: var(--primary-color);
+          color: white;
+        }
+        
+        .contact-title {
+          font-size: 1.8rem;
+          font-weight: 600;
+          margin-bottom: 25px;
+        }
+        
+        .contact-text {
+          font-size: 1.05rem;
+          line-height: 1.7;
+          margin-bottom: 30px;
+          opacity: 0.95;
+        }
+        
+        .contact-methods {
+          margin-top: 40px;
+        }
+        
+        .contact-method {
+          display: flex;
+          align-items: flex-start;
+          gap: 15px;
+          margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+          width: 45px;
+          height: 45px;
+          background-color: rgba(255, 255, 255, 0.15);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.25rem;
+        }
+        
+        .contact-details h3 {
+          font-size: 1.15rem;
+          font-weight: 600;
+          margin-bottom: 5px;
+        }
+        
+        .contact-details p {
+          font-size: 1rem;
+          opacity: 0.9;
+        }
+        
+        .social-contact {
+          margin-top: 40px;
+        }
+        
+        .social-title {
+          font-size: 1.2rem;
+          font-weight: 600;
+          margin-bottom: 15px;
+        }
+        
+        .social-icons {
+          display: flex;
+          gap: 15px;
+        }
+        
+        .social-icon {
+          width: 40px;
+          height: 40px;
+          background-color: rgba(255, 255, 255, 0.15);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.1rem;
+          transition: var(--transition);
+        }
+        
+        .social-icon:hover {
+          background-color: white;
+          color: var(--primary-color);
+          transform: translateY(-3px);
+        }
+        
+        .contact-form {
+          padding: 40px;
+        }
+        
+        .form-title {
+          font-size: 1.8rem;
+          font-weight: 600;
+          margin-bottom: 25px;
+          color: var(--text-color);
+        }
+        
+        .form-group {
+          margin-bottom: 20px;
+        }
+        
+        .form-label {
+          display: block;
+          font-weight: 500;
+          margin-bottom: 8px;
+          color: var(--text-color);
+        }
+        
+        .form-control {
+          width: 100%;
+          padding: 12px 15px;
+          border: 1px solid var(--border-color);
+          border-radius: var(--radius-md);
+          font-size: 1rem;
+          transition: var(--transition);
+          background-color: var(--bg-light);
+        }
+        
+        .form-control:focus {
+          border-color: var(--primary-color);
+          box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.15);
+          outline: none;
+          background-color: white;
+        }
+        
+        textarea.form-control {
+          min-height: 150px;
+          resize: vertical;
+        }
+        
+        .form-submit {
+          margin-top: 10px;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+          max-width: 900px;
+          margin: 60px auto;
+          padding: 0 20px;
+        }
+        
+        .section-title {
+          font-size: 1.75rem;
+          font-weight: 600;
+          color: var(--text-color);
+          margin-bottom: 30px;
+          text-align: center;
+          position: relative;
+        }
+        
+        .section-title:after {
+          content: '';
+          position: absolute;
+          bottom: -10px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 60px;
+          height: 4px;
+          background-color: var(--primary-color);
+          border-radius: 2px;
+        }
+        
+        .faq-container {
+          margin-top: 40px;
+        }
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          .faq-item {
+          background-color: white;
+          border-radius: var(--radius-md);
+          box-shadow: var(--shadow-md);
+          margin-bottom: 15px;
+          overflow: hidden;
+        }
+        
+        .faq-question {
+          padding: 20px;
+          font-weight: 600;
+          color: var(--text-color);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          cursor: pointer;
+          transition: var(--transition);
+        }
+        
+        .faq-question:hover {
+          background-color: var(--bg-light);
+        }
+        
+        .faq-answer {
+          padding: 0 20px 20px;
+          color: var(--text-light);
+          line-height: 1.6;
+        }
+        
+        .faq-answer.hidden {
+          display: none;
+        }
+
+        /* Office Locations */
+        .office-locations {
+          max-width: 1200px;
+          margin: 60px auto;
+          padding: 0 20px;
+        }
+        
+        .locations-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+          gap: 30px;
+          margin-top: 40px;
+        }
+        
+        .location-card {
+          background-color: white;
+          border-radius: var(--radius-lg);
+          box-shadow: var(--shadow-md);
+          overflow: hidden;
+          transition: var(--transition);
+        }
+        
+        .location-card:hover {
+          transform: translateY(-5px);
+          box-shadow: var(--shadow-lg);
+        }
+        
+        .location-image {
+          height: 200px;
+          background-color: var(--bg-light);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: var(--text-lighter);
+          font-size: 3rem;
+        }
+        
+        .location-details {
+          padding: 25px;
+        }
+        
+        .location-city {
+          font-size: 1.3rem;
+          font-weight: 600;
+          margin-bottom: 8px;
+          color: var(--text-color);
+        }
+        
+        .location-address {
+          color: var(--text-light);
+          line-height: 1.6;
+          margin-bottom: 15px;
+        }
+        
+        .location-contact {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          color: var(--text-light);
+          margin-bottom: 8px;
+          font-size: 0.95rem;
+        }
+        
+        .btn-map {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 0.9rem;
+          margin-top: 10px;
+          padding: 8px 16px;
+        }
+        
+        /* Button Styles */
+        .btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          padding: 10px 24px;
+          border-radius: var(--radius-md);
+          font-weight: 500;
+          cursor: pointer;
+          transition: var(--transition);
+          border: none;
+          font-size: 0.95rem;
+          text-decoration: none;
+        }
+        
+        .btn-primary {
+          background-color: var(--primary-color);
+          color: white;
+        }
+        
+        .btn-primary:hover {
+          background-color: var(--primary-color-dark);
+          transform: translateY(-2px);
+          box-shadow: 0 5px 15px rgba(var(--primary-rgb), 0.3);
+        }
+        
+        .btn-outline {
+          border: 2px solid var(--primary-color);
+          color: var(--primary-color);
+          background-color: transparent;
+        }
+        
+        .btn-outline:hover {
+          background-color: var(--primary-color);
+          color: white;
+          transform: translateY(-2px);
+          box-shadow: 0 5px 15px rgba(var(--primary-rgb), 0.15);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 900px) {
+          .contact-container {
+            grid-template-columns: 1fr;
+          }
+          
+          .page-header {
+            padding: 40px 0;
+          }
+          
+          .page-header h1 {
+            font-size: 2rem;
+          }
+          
+          .page-header p {
+            font-size: 1.1rem;
+          }
+          
+          .locations-grid {
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+          }
+        }
+        
+        @media (max-width: 768px) {
+          .locations-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .contact-info, .contact-form {
+            padding: 25px;
+          }
+          
+          .page-header h1 {
+            font-size: 1.75rem;
+          }
+          
+          .page-header p {
+            font-size: 1rem;
+          }
+          
+          .contact-title, .form-title {
+            font-size: 1.5rem;
+          }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+      <div class="container">
+          <div class="logo">
+              <a href="home.html">Career<span>Connect</span></a>
+          </div>
+          <ul class="nav-links">
+              <li><a href="{% url 'findjob' %}">Find Jobs</a></li>
+              <li><a href="{% url 'companies' %}">Companies</a></li>
+              <li><a href="{% url 'about' %}">About</a></li>
+              <li><a href="{% url 'contact' %}">Contact</a></li>
+          </ul>
+          <div class="auth-buttons">
+              <a href="{% url 'login' %}" class="btn btn-outline">Login</a>
+              <a href="{% url 'register' %}" class="btn btn-primary">Register</a>
+          </div>
+          <div class="hamburger">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+          </div>
+      </div>
+  </nav>
+  
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>Have questions or feedback? We're here to help!</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2 class="contact-title">Get in Touch</h2>
+                <p class="contact-text">We'd love to hear from you! Whether you have a question about our platform, need assistance with your account, or want to explore partnership opportunities, our team is ready to help.</p>
+                
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email Us</h3>
+                            <p>support@careerconnect.com</p>
+                            <p>partners@careerconnect.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Call Us</h3>
+                            <p>+1 (800) 555-0123</p>
+                            <p>Mon-Fri, 9AM-6PM EST</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Live Chat</h3>
+                            <p>Available on our platform</p>
+                            <p>24/7 for Premium members</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="social-contact">
+                    <h3 class="social-title">Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h2 class="form-title">Send Us a Message</h2>
+                <form>
+                    <div class="form-group">
+                        <label class="form-label" for="name">Your Name</label>
+                        <input type="text" id="name" class="form-control" placeholder="John Doe" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" placeholder="john@example.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="subject">Subject</label>
+                        <input type="text" id="subject" class="form-control" placeholder="How can we help you?">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="message">Message</label>
+                        <textarea id="message" class="form-control" placeholder="Tell us more about your inquiry..." required></textarea>
+                    </div>
+                    
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Office Locations Section -->
+    <section class="office-locations">
+        <h2 class="section-title">Our Office Locations</h2>
+        <div class="locations-grid">
+            <!-- Location 1 -->
+            <div class="location-card">
+                <div class="location-image">
+                    <i class="fas fa-building"></i>
+                </div>
+                <div class="location-details">
+                    <h3 class="location-city">New York (Headquarters)</h3>
+                    <p class="location-address">123 Career Avenue, Suite 500<br>New York, NY 10010</p>
+                    <div class="location-contact">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+1 (212) 555-6789</span>
+                    </div>
+                    <div class="location-contact">
+                        <i class="fas fa-envelope"></i>
+                        <span>nyc@careerconnect.com</span>
+                    </div>
+                    <a href="#" class="btn btn-outline btn-map">
+                        <i class="fas fa-map-marker-alt"></i> View on Map
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Location 2 -->
+            <div class="location-card">
+                <div class="location-image">
+                    <i class="fas fa-building"></i>
+                </div>
+                <div class="location-details">
+                    <h3 class="location-city">San Francisco</h3>
+                    <p class="location-address">456 Tech Plaza, 7th Floor<br>San Francisco, CA 94105</p>
+                    <div class="location-contact">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+1 (415) 555-1234</span>
+                    </div>
+                    <div class="location-contact">
+                        <i class="fas fa-envelope"></i>
+                        <span>sf@careerconnect.com</span>
+                    </div>
+                    <a href="#" class="btn btn-outline btn-map">
+                        <i class="fas fa-map-marker-alt"></i> View on Map
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Location 3 -->
+            <div class="location-card">
+                <div class="location-image">
+                    <i class="fas fa-building"></i>
+                </div>
+                <div class="location-details">
+                    <h3 class="location-city">London</h3>
+                    <p class="location-address">78 Career Lane, 3rd Floor<br>London, UK EC2A 4NE</p>
+                    <div class="location-contact">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+44 20 7946 0892</span>
+                    </div>
+                    <div class="location-contact">
+                        <i class="fas fa-envelope"></i>
+                        <span>london@careerconnect.com</span>
+                    </div>
+                    <a href="#" class="btn btn-outline btn-map">
+                        <i class="fas fa-map-marker-alt"></i> View on Map
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-container">
+            <!-- FAQ Item 1 -->
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    How do I create an account on CareerConnect?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer hidden">
+                    Creating an account is simple! Click the "Register" button in the top right corner of the page. You'll need to provide your email address, create a password, and fill in some basic information about your professional background. Once you've verified your email, you're all set to explore jobs and companies!
+                </div>
+            </div>
+            
+            <!-- FAQ Item 2 -->
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    Is it free to use CareerConnect?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer hidden">
+                    Yes, basic access to CareerConnect is completely free for job seekers! You can create a profile, search for jobs, and apply to positions at no cost. We also offer Premium membership options with additional features like advanced search filters, application insights, and priority support.
+                </div>
+            </div>
+            
+            <!-- FAQ Item 3 -->
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    How can companies post job listings?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer hidden">
+                    Employers can create a company account and access our job posting platform from the "For Employers" section. We offer various recruitment packages to suit businesses of all sizes, from startups to enterprise companies. For more information, please contact our sales team at partners@careerconnect.com.
+                </div>
+            </div>
+            
+            <!-- FAQ Item 4 -->
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    I forgot my password. How can I reset it?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer hidden">
+                    If you've forgotten your password, click "Login" at the top of the page, then select "Forgot password?" below the login form. Enter your email address, and we'll send you instructions to reset your password. For security reasons, the reset link expires after 24 hours.
+                </div>
+            </div>
+            
+            <!-- FAQ Item 5 -->
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    How can I get technical support?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer hidden">
+                    For technical issues or account-related questions, you can contact our support team at support@careerconnect.com or call +1 (800) 555-0123 during business hours. Premium members also have access to 24/7 live chat support directly through the platform.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (You can add your existing footer here) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Career<span>Connect</span></h2>
+                    <p>Connecting talent with opportunity</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>For Job Seekers</h3>
+                        <ul>
+                            <li><a href="#">Browse Jobs</a></li>
+                            <li><a href="#">Career Resources</a></li>
+                            <li><a href="#">Resume Builder</a></li>
+                            <li><a href="#">Salary Calculator</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>For Employers</h3>
+                        <ul>
+                            <li><a href="#">Post a Job</a></li>
+                            <li><a href="#">Talent Solutions</a></li>
+                            <li><a href="#">Recruiting Solutions</a></li>
+                            <li><a href="#">Pricing Plans</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Company</h3>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 CareerConnect. All rights reserved.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+        
+        // FAQ toggle
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('i');
+            
+            if (answer.classList.contains('hidden')) {
+                answer.classList.remove('hidden');
+                icon.classList.replace('fa-chevron-down', 'fa-chevron-up');
+            } else {
+                answer.classList.add('hidden');
+                icon.classList.replace('fa-chevron-up', 'fa-chevron-down');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - CareerConnect</title>
+    
+    <style>
+
+
+/* General Styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #1e40af;
+    --accent-color: #3b82f6;
+    --light-color: #f3f4f6;
+    --dark-color: #1f2937;
+    --text-color: #374151;
+    --text-light: #6b7280;
+    --border-color: #e5e7eb;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --danger-color: #ef4444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #f9fafb;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+ul {
+    list-style: none;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.section-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.logo a {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--dark-color);
+}
+
+.logo span {
+    color: var(--primary-color);
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--primary-color);
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease;
+    background-color: var(--dark-color);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--dark-color);
+    color: white;
+    padding: 60px 0 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-section h2,
+.footer-section h3 {
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.footer-section.about p {
+    margin-bottom: 20px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #d1d5db;
+    transition: all 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: var(--primary-color);
+    padding-left: 5px;
+}
+
+.footer-section.contact p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.footer-section.contact i {
+    margin-right: 10px;
+    color: var(--primary-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Media Queries */
+@media (max-width: 992px) {
+    .nav-links {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: white;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px 0;
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+
+
+
+
+
+
+        /* Authentication Pages Styles */
+
+.auth-section {
+    padding: 60px 0;
+    min-height: calc(100vh - 400px);
+    display: flex;
+    align-items: center;
+}
+
+.auth-container {
+    display: grid;
+    grid-template-columns: minmax(300px, 45%) minmax(300px, 55%);
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.auth-image-container {
+    height: 100%;
+    overflow: hidden;
+}
+
+.auth-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.auth-form-container {
+    padding: 40px;
+}
+
+.auth-form-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.auth-form-header h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 10px;
+}
+
+.auth-form-header p {
+    color: var(--text-light);
+    font-size: 16px;
+}
+
+.auth-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.input-with-icon {
+    position: relative;
+}
+
+.input-with-icon i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+}
+
+.input-with-icon .toggle-password {
+    left: auto;
+    right: 15px;
+    cursor: pointer;
+}
+
+.input-with-icon input {
+    width: 100%;
+    padding: 12px 40px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.input-with-icon input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.forgot-password {
+    color: var(--primary-color);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.btn-block {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 25px 0;
+    color: var(--text-light);
+}
+
+.divider:before,
+.divider:after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: var(--border-color);
+}
+
+.divider span {
+    padding: 0 15px;
+    font-size: 14px;
+}
+
+.social-login {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.social-btn {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.social-btn i {
+    font-size: 16px;
+}
+
+.social-btn.google:hover {
+    background-color: #f2f2f2;
+}
+
+.social-btn.linkedin:hover {
+    background-color: #e8f4f9;
+}
+
+.social-btn.google i {
+    color: #ea4335;
+}
+
+.social-btn.linkedin i {
+    color: #0077b5;
+}
+
+.auth-redirect {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.auth-redirect a {
+    font-weight: 500;
+}
+
+/* Password Strength */
+.password-strength {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.strength-text {
+    font-size: 12px;
+    color: var(--text-light);
+}
+
+.strength-meter {
+    flex: 1;
+    height: 5px;
+    background-color: #f3f4f6;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.strength-bar {
+    height: 100%;
+    width: 0;
+    background-color: #ef4444;
+    transition: all 0.3s ease;
+}
+
+/* Account Type Options */
+.account-type-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.account-type-option {
+    position: relative;
+    cursor: pointer;
+}
+
+.account-type-option input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.account-type-content {
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.account-type-option input:checked ~ .account-type-content {
+    border-color: var(--primary-color);
+    background-color: rgba(37, 99, 235, 0.05);
+}
+
+.account-type-content i {
+    font-size: 24px;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.account-type-content span {
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--text-color);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.account-type-content p {
+    color: var(--text-light);
+    font-size: 14px;
+}
+
+.terms {
+    font-size: 14px;
+}
+
+.terms a {
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .auth-container {
+        grid-template-columns: 1fr;
+    }
+
+    .auth-image-container {
+        display: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .social-login {
+        grid-template-columns: 1fr;
+    }
+
+    .auth-form-container {
+        padding: 30px 20px;
+    }
+}
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="home.html">Career<span>Connect</span></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'findjob' %}">Find Jobs</a></li>
+                <li><a href="{% url 'companies' %}">Companies</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="{% url 'login' %}" class="btn btn-outline">Login</a>
+                <a href="{% url 'register' %}" class="btn btn-primary">Register</a>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+    
+
+    <!-- Register Form Section -->
+    <section class="auth-section">
+        <div class="container">
+            <div class="auth-container">
+                <div class="auth-image-container">
+                    <img src="https://static.vecteezy.com/system/resources/previews/003/689/228/non_2x/online-registration-or-sign-up-login-for-account-on-smartphone-app-user-interface-with-secure-password-mobile-application-for-ui-web-banner-access-cartoon-people-illustration-vector.jpg" alt="Register" class="auth-image">
+                </div>
+                
+                <div class="auth-form-container">
+                    <div class="auth-form-header">
+                        <h2>Create an Account</h2>
+                        <p>Join CareerConnect to find your dream job and advance your career</p>
+                    </div>
+                    
+                    <form class="auth-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="firstName" placeholder="Enter your first name" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="lastName" placeholder="Enter your last name" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="email" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="password" placeholder="Create a password" required>
+                                <i class="fas fa-eye toggle-password"></i>
+                            </div>
+                            <div class="password-strength">
+                                <span class="strength-text">Password strength:</span>
+                                <div class="strength-meter">
+                                    <div class="strength-bar"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+                                <i class="fas fa-eye toggle-password"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Account Type</label>
+                            <div class="account-type-options">
+                                <label class="account-type-option">
+                                    <input type="radio" name="accountType" value="jobSeeker" checked>
+                                    <div class="account-type-content">
+                                        <i class="fas fa-user-tie"></i>
+                                        <span>Job Seeker</span>
+                                        <p>I want to find a job</p>
+                                    </div>
+                                </label>
+                                
+                                <label class="account-type-option">
+                                    <input type="radio" name="accountType" value="employer">
+                                    <div class="account-type-content">
+                                        <i class="fas fa-building"></i>
+                                        <span>Employer</span>
+                                        <p>I want to post jobs</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group terms">
+                            <label class="checkbox-container">
+                                <input type="checkbox" required>
+                                <span class="checkmark"></span>
+                                I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+                        
+                        <div class="divider">
+                            <span>Or sign up with</span>
+                        </div>
+                        
+                        <div class="social-login">
+                            <button type="button" class="social-btn google">
+                                <i class="fab fa-google"></i> Google
+                            </button>
+                            <button type="button" class="social-btn linkedin">
+                                <i class="fab fa-linkedin-in"></i> LinkedIn
+                            </button>
+                        </div>
+                        
+                        <div class="auth-redirect">
+                            <p>Already have an account? <a href="login.html">Login</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h2>Career<span>Connect</span></h2>
+                    <p>Your gateway to career opportunities and professional growth. Connect with top employers and find your dream job.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="find-jobs.html">Jobs</a></li>
+                        <li><a href="companies.html">Companies</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section resources">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Resume Builder</a></li>
+                        <li><a href="#">Career Advice</a></li>
+                        <li><a href="#">Interview Tips</a></li>
+                        <li><a href="#">Salary Guide</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Business Ave, City, Country</p>
+                    <p><i class="fas fa-phone"></i> +1 234 567 8900</p>
+                    <p><i class="fas fa-envelope"></i> info@careerconnect.com</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 CareerConnect. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
